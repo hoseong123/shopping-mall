@@ -9,24 +9,38 @@ registerButton.onclick = () => {
         password: accountInputs[2].value
     }
 
-    let ajaxOption = {
+    $.ajax({
         async: false,
         type: "post",
         url: "/api/account/register",
         contentType: "application/json",
         data: JSON.stringify(user),
         dataType: "json",
-        succss: (reponse) => {
-            alert("회원가입 요청 성공");
+        success: (reponse) => {
             console.log(Response);
         },
-        error: (request, status, error) =>{
-            alert("회원가입 요청 실패");
-            console.log(error.responseJSON.name);
+        error: (error) =>{
+            console.log(error.responseJSON.data);
+            loadErrorMassege(error.responseJSON.data);
         }
 
 
-    }
+    });
 
-    $.ajax(ajaxOption);
+}
+
+function loadErrorMassege(errors) {
+    const errorList = document.querySelector(".errors");
+    const errorMsgs = document.querySelector(".error-msgs");
+    const errorsArray = Object.values(errors)
+
+    errorMsgs.innerHTML = "";
+
+    errorsArray.forEach(error =>{
+        errorMsgs.innerHTML += `
+            <li>${error}</li>
+        `;
+    })
+
+    errorList.classList.remove("errors-invisible");
 }
