@@ -9,3 +9,15 @@ spring:
     user:
       name: test@naver.com
       password: 1q2w3e4r!
+
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:mariadb://database.cheqn470hyme.ap-northeast-1.rds.amazonaws.com/shopping
+    username: admin2
+    password: ghtmd12!
+
+mybatis:
+  mapper-locations:
+    - /mappers/*.xml
+
+
