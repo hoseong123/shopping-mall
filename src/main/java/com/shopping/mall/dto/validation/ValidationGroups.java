@@ -1,4 +1,4 @@
-package com.shopping.mall.shopping.mall.dto.validation;
+package com.shopping.mall.dto.validation;
 
 public interface ValidationGroups {
     public interface NotBlankGroup {};

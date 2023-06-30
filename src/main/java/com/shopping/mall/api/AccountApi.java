@@ -1,11 +1,11 @@
-package com.shopping.mall.shopping.mall.api;
+package com.shopping.mall.api;
 
-import com.shopping.mall.shopping.mall.aop.annotation.LogAspect;
-import com.shopping.mall.shopping.mall.dto.CMRespDto;
-import com.shopping.mall.shopping.mall.dto.RegisterReqDto;
-import com.shopping.mall.shopping.mall.dto.validation.ValidationSequence;
-import com.shopping.mall.shopping.mall.exception.CustomValidationException;
-import com.shopping.mall.shopping.mall.service.AccountService;
+import com.shopping.mall.aop.annotation.LogAspect;
+import com.shopping.mall.dto.CMRespDto;
+import com.shopping.mall.dto.RegisterReqDto;
+import com.shopping.mall.dto.validation.ValidationSequence;
+import com.shopping.mall.exception.CustomValidationException;
+import com.shopping.mall.service.AccountService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;

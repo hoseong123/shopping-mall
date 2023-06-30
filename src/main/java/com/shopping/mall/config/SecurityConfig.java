@@ -1,4 +1,4 @@
-package com.shopping.mall.shopping.mall.config;
+package com.shopping.mall.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

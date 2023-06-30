@@ -1,6 +1,6 @@
-package com.shopping.mall.shopping.mall.dto;
+package com.shopping.mall.dto;
 
-import com.shopping.mall.shopping.mall.dto.validation.ValidationGroups;
+import com.shopping.mall.dto.validation.ValidationGroups;
 import lombok.Data;
 
 import javax.validation.constraints.Email;

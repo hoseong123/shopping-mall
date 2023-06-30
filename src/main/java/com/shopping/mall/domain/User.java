@@ -1,4 +1,4 @@
-package com.shopping.mall.shopping.mall.domain;
+package com.shopping.mall.domain;
 
 import javax.management.relation.Role;
 import java.time.LocalDateTime;

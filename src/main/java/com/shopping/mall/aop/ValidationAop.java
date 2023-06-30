@@ -1,6 +1,6 @@
-package com.shopping.mall.shopping.mall.aop;
+package com.shopping.mall.aop;
 
-import com.shopping.mall.shopping.mall.exception.CustomValidationException;
+import com.shopping.mall.exception.CustomValidationException;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
@@ -19,40 +19,38 @@ import java.util.Map;
 @Component
 public class ValidationAop {
 
-    @Pointcut("execution(* com.shopping.mall.shopping.mall.api.*.*(..))")
+    @Pointcut("execution(* com.shopping.mall.api.*.*(..))")
     private void executionPointCut() {}
 
     @Around("executionPointCut()")
-    public Object arround(ProceedingJoinPoint joinPoint) throws Throwable {
+    public Object around(ProceedingJoinPoint joinPoint) throws Throwable {
 
         Object[] args = joinPoint.getArgs();
 
         BeanPropertyBindingResult bindingResult = null;
 
-        for(Object arg : args){
-            if(arg.getClass() == BeanPropertyBindingResult.class){
+        for(Object arg : args) {
+            System.out.println(arg);
+            if(arg.getClass() == BeanPropertyBindingResult.class) {
                 bindingResult = (BeanPropertyBindingResult) arg;
                 break;
-
             }
         }
 
-        if(bindingResult.hasErrors()){
+        if (bindingResult.hasErrors()) {
             Map<String, String> errorMap = new HashMap<String, String>();
 
             List<FieldError> fieldErrors = bindingResult.getFieldErrors();
-            for(FieldError fieldError : fieldErrors){
+            for (FieldError fieldError : fieldErrors) {
                 errorMap.put(fieldError.getField(), fieldError.getDefaultMessage());
-
-                throw new CustomValidationException("Validation Error" , errorMap);
             }
-        }
 
+            throw new CustomValidationException("Validation Error", errorMap);
+        }
 
         Object result = null;
         result = joinPoint.proceed();
 
         return result;
-
     }
 }

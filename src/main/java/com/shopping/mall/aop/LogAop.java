@@ -1,4 +1,4 @@
-package com.shopping.mall.shopping.mall.aop;
+package com.shopping.mall.aop;
 
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;
@@ -9,21 +9,20 @@ import org.aspectj.lang.annotation.Pointcut;
 import org.aspectj.lang.reflect.CodeSignature;
 import org.springframework.stereotype.Component;
 
-import java.security.CodeSigner;
 
 @Slf4j
 @Aspect
 @Component
 public class LogAop {
 
-    @Pointcut("execution(* com.shopping.mall.shopping.mall.api.*API.*(..))")
+    @Pointcut("execution(* com.shopping.mall.api.*API.*(..))")
     private void pointCut() {}
 
-    @Pointcut("annotation(com. shopping.mall.shopping.mall.aop.annotation.LogAspect)")
+    @Pointcut("annotation(com. shopping.mall.aop.annotation.LogAspect)")
     private void annotionPointCut() {}
 
-    @Around("annotionPoinCut()")
-    public Object around(ProceedingJoinPoint joinPoint) throws Throwable{
+    @Around("annotionPointCut()")
+    public Object around(ProceedingJoinPoint joinPoint) throws Throwable {
         CodeSignature codeSignature = (CodeSignature) joinPoint.getSignature();
 
         String className = codeSignature.getDeclaringTypeName();
@@ -37,11 +36,9 @@ public class LogAop {
 
         Object result = joinPoint.proceed();
 
-        log.info("<<<< return >>>> {}.{} >>> [{}]", className, methodName, result);
+        log.info("<<<< Return >>>> {}.{} >>> [{}]", className, methodName, result);
 
         return result;
-
     }
-
 
 }

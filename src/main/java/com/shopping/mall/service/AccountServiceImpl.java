@@ -1,9 +1,9 @@
-package com.shopping.mall.shopping.mall.service;
+package com.shopping.mall.service;
 
-import com.shopping.mall.shopping.mall.domain.User;
-import com.shopping.mall.shopping.mall.dto.RegisterReqDto;
-import com.shopping.mall.shopping.mall.exception.CustomValidationException;
-import com.shopping.mall.shopping.mall.repository.AccountRepository;
+import com.shopping.mall.domain.User;
+import com.shopping.mall.dto.RegisterReqDto;
+import com.shopping.mall.exception.CustomValidationException;
+import com.shopping.mall.repository.AccountRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

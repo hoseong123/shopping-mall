@@ -1,6 +1,6 @@
-package com.shopping.mall.shopping.mall.repository;
+package com.shopping.mall.repository;
 
-import com.shopping.mall.shopping.mall.domain.User;
+import com.shopping.mall.domain.User;
 import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
