@@ -1,7 +1,9 @@
 package com.shopping.mall.dto;
 
+import com.shopping.mall.domain.User;
 import com.shopping.mall.dto.validation.ValidationGroups;
 import lombok.Data;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
@@ -24,4 +26,12 @@ public class RegisterReqDto {
     @Size(min = 8, max = 12, message = "비밀번호는 8자 부터 12자 까지 입력하여야 합니다", groups = ValidationGroups.SizeGroup.class)
     @Pattern(regexp = "^(?=.*[a-zA-Z])(?=.*\\d)(?=.*[~!@#$%^&*_])[a-zA-Z\\d-~!@#$%^&*_]*$", message = "비밀번호는 특수기호, 영문, 숫자를 모두 포함해야합니다", groups = ValidationGroups.PatternCheckGroup.class)
     private String password;
+
+    public User toEntity() {
+        return User.builder()
+                .password(password)
+                .email(email)
+                .name(name)
+                .build();
+    }
 }

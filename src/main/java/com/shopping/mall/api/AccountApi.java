@@ -28,6 +28,7 @@ public class AccountApi {
     @LogAspect
     @PostMapping("/register")
     public ResponseEntity<?> register(@Validated(ValidationSequence.class) @RequestBody RegisterReqDto registerReqDto, BindingResult bindingResult) throws Exception {
+        accountService.duplicateEmail(registerReqDto);
         accountService.register(registerReqDto);
         return ResponseEntity.created(null).body(new CMRespDto<>("회원가입 성공", registerReqDto));
 
