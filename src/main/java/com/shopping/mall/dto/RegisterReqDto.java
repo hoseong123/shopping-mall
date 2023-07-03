@@ -29,9 +29,10 @@ public class RegisterReqDto {
 
     public User toEntity() {
         return User.builder()
-                .password(password)
+                .password(new BCryptPasswordEncoder().encode(password))
                 .email(email)
                 .name(name)
+                .role_id(1)
                 .build();
     }
 }

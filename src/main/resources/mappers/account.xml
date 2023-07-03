@@ -40,19 +40,19 @@
 
     </select>
 
-    <insert id="saveUser" parameterType="com.hotel.josunclone20230315seoyeong.domain.User"
+    <insert id="saveUser" parameterType="com.shopping.mall.domain.User"
             useGeneratedKeys="true" keyProperty="id">
         insert into
         user_mst
         values(
-        0,
-        #{password},
-        #{name},
-        #{email},
-        #{provider},
-        #{role_id},
-        now(),
-        now()
+            0,
+            #{email},
+            #{password},
+            #{name},
+            #{provider},
+            #{role_id},
+            now(),
+            now()
         )
     </insert>
 

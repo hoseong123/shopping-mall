@@ -5,7 +5,6 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.management.relation.Role;
 import java.time.LocalDateTime;
 
 @Builder
@@ -23,5 +22,4 @@ public class User {
     private LocalDateTime update_date;
 
     private Role role;
-
 }

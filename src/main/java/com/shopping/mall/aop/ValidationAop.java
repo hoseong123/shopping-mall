@@ -10,7 +10,6 @@ import org.springframework.validation.BeanPropertyBindingResult;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 
-import java.beans.BeanProperty;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -19,10 +18,10 @@ import java.util.Map;
 @Component
 public class ValidationAop {
 
-    @Pointcut("execution(* com.shopping.mall.api.*.*(..))")
-    private void executionPointCut() {}
+    @Pointcut("@annotation(com.stussy.stussyclone20220930hs.aop.annotation.ValidAspect)")
+    private void annotationPointcut() {}
 
-    @Around("executionPointCut()")
+    @Around("annotationPointcut()")
     public Object around(ProceedingJoinPoint joinPoint) throws Throwable {
 
         Object[] args = joinPoint.getArgs();
@@ -30,18 +29,17 @@ public class ValidationAop {
         BeanPropertyBindingResult bindingResult = null;
 
         for(Object arg : args) {
-            System.out.println(arg);
             if(arg.getClass() == BeanPropertyBindingResult.class) {
                 bindingResult = (BeanPropertyBindingResult) arg;
                 break;
             }
         }
 
-        if (bindingResult.hasErrors()) {
+        if(bindingResult.hasErrors()) {
             Map<String, String> errorMap = new HashMap<String, String>();
 
             List<FieldError> fieldErrors = bindingResult.getFieldErrors();
-            for (FieldError fieldError : fieldErrors) {
+            for(FieldError fieldError : fieldErrors) {
                 errorMap.put(fieldError.getField(), fieldError.getDefaultMessage());
             }
 
@@ -53,4 +51,6 @@ public class ValidationAop {
 
         return result;
     }
+
+
 }

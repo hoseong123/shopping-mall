@@ -4,27 +4,26 @@ import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
-
 import org.aspectj.lang.annotation.Pointcut;
 import org.aspectj.lang.reflect.CodeSignature;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
-
 
 @Slf4j
 @Aspect
 @Component
 public class LogAop {
 
-    @Pointcut("execution(* com.shopping.mall.api.*API.*(..))")
+    @Pointcut("execution(* com.shopping.mall.api.*Api.*(..))")
     private void pointCut() {}
 
-    @Pointcut("annotation(com. shopping.mall.aop.annotation.LogAspect)")
+    @Pointcut("@annotation(com.shopping.mall.aop.annotation.LogAspect)")
     private void annotionPointCut() {}
 
     @Around("annotionPointCut()")
     public Object around(ProceedingJoinPoint joinPoint) throws Throwable {
         CodeSignature codeSignature = (CodeSignature) joinPoint.getSignature();
-
         String className = codeSignature.getDeclaringTypeName();
         String methodName = codeSignature.getName();
         String[] parameterNames = codeSignature.getParameterNames();

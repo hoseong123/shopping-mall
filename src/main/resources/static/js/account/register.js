@@ -16,8 +16,10 @@ registerButton.onclick = () => {
         contentType: "application/json",
         data: JSON.stringify(user),
         dataType: "json",
-        success: (reponse) => {
-            console.log(Response);
+        success: (response, textStatus, request) => {
+            console.log(response);
+            console.log(request.getResponseHeader("Location"));
+            location.replace(successURI + "?email" + response.data);
         },
         error: (error) =>{
             console.log(error.responseJSON.data);
