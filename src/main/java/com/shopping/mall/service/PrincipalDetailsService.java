@@ -3,6 +3,7 @@ package com.shopping.mall.service;
 import com.shopping.mall.domain.User;
 import com.shopping.mall.exception.CustomInternalServerErrorException;
 import com.shopping.mall.repository.AccountRepository;
+import com.shopping.mall.security.PrincipalDetails;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -23,13 +24,13 @@ public class PrincipalDetailsService implements UserDetailsService {
 
         try {
            user = accountRepository.findUserByEmail(email);
-           if(user == null){
-               throw new UsernameNotFoundException("잘못된 사용자 정보");
-           }
         } catch (Exception e) {
             throw new CustomInternalServerErrorException("회원 정보 조회 오류");
         }
+        if(user == null){
+            throw new UsernameNotFoundException("잘못된 사용자 정보");
+        }
 
-        return null;
+        return new PrincipalDetails(user);
     }
 }
