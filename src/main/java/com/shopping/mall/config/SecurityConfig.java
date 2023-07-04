@@ -1,5 +1,6 @@
 package com.shopping.mall.config;
 
+import com.shopping.mall.security.AuthFailureHandler;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -26,8 +27,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .permitAll()
                 .and()
                 .formLogin()
+                .usernameParameter("email")
                 .loginPage("/account/login")
                 .loginProcessingUrl("/account/login")
+                .failureHandler(new AuthFailureHandler())
                 .defaultSuccessUrl("/index");
     }
 }

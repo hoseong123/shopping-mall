@@ -13,9 +13,9 @@ import java.time.LocalDateTime;
 @Data
 public class User {
     private String id;
-    private String email;
     private String password;
     private String name;
+    private String email;
     private String provider;
     private int role_id;
     private LocalDateTime create_date;
@@ -23,3 +23,4 @@ public class User {
 
     private Role role;
 }
+

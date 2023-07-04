@@ -1,5 +1,8 @@
 package com.shopping.mall.service;
 
+import com.shopping.mall.domain.User;
+import com.shopping.mall.exception.CustomInternalServerErrorException;
+import com.shopping.mall.repository.AccountRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -9,10 +12,23 @@ import org.springframework.stereotype.Service;
 
 @Slf4j
 @Service
+@RequiredArgsConstructor
 public class PrincipalDetailsService implements UserDetailsService {
+
+    private final AccountRepository accountRepository;
     @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        log.info("loadUserByUsername: {}", username);
+    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+
+        User user = null;
+
+        try {
+           user = accountRepository.findUserByEmail(email);
+           if(user == null){
+               throw new UsernameNotFoundException("잘못된 사용자 정보");
+           }
+        } catch (Exception e) {
+            throw new CustomInternalServerErrorException("회원 정보 조회 오류");
+        }
 
         return null;
     }
