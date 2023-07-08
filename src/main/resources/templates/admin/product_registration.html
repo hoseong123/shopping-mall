@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>admin</title>
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <link rel="stylesheet" href="/static/css/header.css">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/admin.css">
+    <link rel="stylesheet" href="/static/css/aside.css">
+</head>
+<body>
+    <div id ="container">
+        <header>
+            <div class="header-container">
+                <div class="header-left-container">
+                    <div class="nav-menu-button">
+                        <a class="nav-menu-button-link" href="">SHOP</a>
+                    </div>
+                    <div class="find-pdt-button">
+                        <div class="find-button">상품찾기
+                            <img src="/static/images/header/find.png" alt="더보기">
+                        </div>
+                    </div>
+                </div>
+                <div class="header-mid-container">
+                    <div class="site-logo">
+                        <img class="site-logo-img" src="/static/images/header/site_logo.png" alt="logo">
+                    </div>
+                </div>
+                <div class="header-right-container">
+                    <ul>
+                        <li><a class="header-login-button" href="/account/login">로그인</a></li>
+                        <li><a class="header-regist-button" href="/account/register">회원가입</a></li>
+                        <li><a class="header-cart-button" href="/board/cart">장바구니</a></li>
+                        <li><a class="header-board-button" href="/board/pa">Q&A</a></li>
+                    </ul>
+                </div>              
+            </div>
+            <nav class="nav-invisible">
+                <div class="site-nav-mega">
+                    <a class="site-nav-link" href="/collections/all">ALL</a>
+                    <a class="site-nav-link" href="/collections/outer">OUTER</a>
+                    <a class="site-nav-link" href="/collections/top">TOP</a>
+                    <a class="site-nav-link" href="/collections/pants">PANTS</a>
+                    <a class="site-nav-link" href="/collections/shirts">SHIRTS</a>
+                    <a class="site-nav-link" href="/collections/shoes">BAG & SHOES</a>
+                    <a class="site-nav-link" href="/collections/acc">ACC</a>
+                </div>
+            </nav>
+            <script src="/static/js/header/header.js"></script>
+        </header>
+        <main>
+            <div class="admin">
+                <h1 class="admin-title">ADMIN PRODUCT REGISTRATION</h1>
+                <div class="admin-container">
+                    <aside class="admin-menus">
+                        <ul>
+                            <li><a href="/admin/products">상품 조회</a></li>
+                            <li><a href="/admin/product/addition">상품 등록</a></li>
+                            <li><a href="/admin/systems">시스템 정보</a></li>
+                            <li><a href="/logout">로그아웃</a></li>
+                        </ul>
+                    </aside>
+                    <section class="admin-main">
+                        <div class="regist-header">
+                            <select class="product-inputs product-category">
+                                <option value="none">상품 종류</option>
+                                <option value="1">TEES</option>
+                                <option value="2">DENIM</option>
+                            </select>
+                            <input type="text" class="product-inputs" placeholder="상품명">
+                            <input type="number" min="100" step="100" class="product-inputs" placeholder="가격">
+                        </div>
+                        <div class="regist-info regist-info-invisible">
+                            <textarea class="product-inputs" placeholder="간단 설명"></textarea>
+                            <textarea class="product-inputs" placeholder="상세 설명"></textarea>
+                            <textarea class="product-inputs" placeholder="추가 설명"></textarea>
+                            <textarea class="product-inputs" placeholder="관리 설명"></textarea>
+                            <textarea class="product-inputs" placeholder="배송 설명"></textarea>
+                        </div>
+                        <button type="button" class="btn regist-button">등록하기</button>
+                        <div class="product-mst">
+                            <div class="list-container">
+                                <div class="option-container">
+                                <ul class="page-number-list">
+                                    <a href="">&#60;<li></li></a>
+                                    <a href="">1<li></li></a>
+                                    <a href="">2<li></li></a>
+                                    <a href="">3<li></li></a>
+                                    <a href="">4<li></li></a>
+                                    <a href="">5<li></li></a>
+                                    <a href="">&#62;<li></li></a>
+                                </ul>
+                                <div class="search-container">
+                                    <input type="search" class="search-input">
+                                    <button type="button" class="btn search-button">검색</button>
+                                </div>
+                            </div>
+                                <table class="product-mst-list">
+                                    <thead>
+                                        <tr>
+                                            <th>상품코드</th>
+                                            <th>상품명</th>
+                                            <th>상품명</th>
+                                            <th>가격</th>
+                                            <th>상세</th>
+                                            <th>추가</th>
+                                            <th>수정</th>
+                                            <th>삭제</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>TEES</td>
+                                            <td>테스트 상품1</td>
+                                            <td>100000</td>
+                                            <td><button type="button" class="btn">보기</button></td>
+                                            <td><button type="button" class="btn">추가</button></td>
+                                            <td><button type="button" class="btn">수정</button></td>
+                                            <td><button type="button" class="btn">삭제</button></td>
+                                        </tr>
+                                    </tbody>
+                               </table>
+                               </div>
+                        <div class="show-option">
+                            <div class="function-container">
+
+                            </div>
+                            <label for="simple-info">간단 설명</label>
+                            <textarea id="simple-info" class="product-inputs"></textarea>
+                            <label for="detail-info">상세설명</label>
+                            <textarea id="detail-info" class="product-inputs"></textarea>
+                            <label for="option-info">추가 설명</label>
+                            <textarea id="option-info" class="product-inputs"></textarea>
+                            <label for="management-info">관리 설명</label>
+                            <textarea id="management-info" class="product-inputs"></textarea>
+                            <label for="shipping-info">배송 설명</label>
+                            <textarea id="shipping-info" class="product-inputs"></textarea>
+                            
+
+                        </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </main>
+        <footer>
+
+        </footer>
+    </div>
+    <script src="/static/js/admin/product_registration.js"></script>
+</body>
+</html>
