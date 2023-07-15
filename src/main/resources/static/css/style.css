@@ -1,5 +1,6 @@
 * {
     box-sizing: border-box;
+
 }
 
 body {
@@ -20,6 +21,15 @@ ul, li {
 .btn {
     border: 1px solid black;
     padding: 10px;
+    font-size: 12px;
+}
+
+input, textarea, select {
+    border: 1px solid rgb(198, 198, 198);
+    outline: none;
+    padding: 10px;
+
+    width: 100%;
 }
 
 button {
@@ -31,4 +41,17 @@ button {
 
 main{
     margin-top: 120px;
+}
+
+table {
+    border-collapse: collapse;
+    border: 1px solid rgb(198, 198, 198);
+}
+
+th, td {
+    border: 1px solid rgb(198, 198, 198);
+
+    height: 30px;
+
+    text-align: center;
 }

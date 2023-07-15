@@ -168,3 +168,11 @@ textarea {
     margin-bottom: 10px;
     height: 50px;
 }
+
+.product-mst-list{
+    font-size: 13px;
+}
+
+.page-number-list li{
+    font-size: 12px;
+}

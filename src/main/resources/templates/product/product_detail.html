@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>product-detail</title>
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/static/css/header.css">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/product.css">
+</head>
+<body>
+    <div id ="container">
+        <header>
+            <div class="header-container">
+                <div class="header-left-container">
+                    <div class="nav-menu-button">
+                        <a class="nav-menu-button-link" href="">SHOP</a>
+                    </div>
+                    <div class="find-pdt-button">
+                        <div class="find-button">상품찾기
+                            <img src="/static/images/header/find.png" alt="더보기">
+                        </div>
+                    </div>
+                </div>
+                <div class="header-mid-container">
+                    <div class="site-logo">
+                        <img class="site-logo-img" src="/static/images/header/site_logo.png" alt="logo">
+                    </div>
+                </div>
+                <div class="header-right-container">
+                    <ul>
+                        <li><a class="header-login-button" href="/account/login">로그인</a></li>
+                        <li><a class="header-regist-button" href="/account/register">회원가입</a></li>
+                        <li><a class="header-cart-button" href="/board/cart">장바구니</a></li>
+                        <li><a class="header-board-button" href="/board/pa">Q&A</a></li>
+                    </ul>
+                </div>              
+            </div>
+            <nav class="nav-invisible">
+                <div class="site-nav-mega">
+                    <a class="site-nav-link" href="/collections/all">ALL</a>
+                    <a class="site-nav-link" href="/collections/outer">OUTER</a>
+                    <a class="site-nav-link" href="/collections/top">TOP</a>
+                    <a class="site-nav-link" href="/collections/pants">PANTS</a>
+                    <a class="site-nav-link" href="/collections/shirts">SHIRTS</a>
+                    <a class="site-nav-link" href="/collections/shoes">BAG & SHOES</a>
+                    <a class="site-nav-link" href="/collections/acc">ACC</a>
+                </div>
+            </nav>
+            <script src="/static/js/header/header.js"></script>
+        </header>
+                <main>
+                    <section class="product-section">
+                        <div class="product-images">
+                        </div>
+                        <div class="offers">
+                            <h1 class="product-title"></h1>
+                            <div class="product-price"></div>
+                            <div class="product-form">
+                                <select class="product-colors">
+                                </select>
+                                <form action="/checkout" method="get">    
+                                    <div class="product-sizes">
+                                    </div>
+                                    <button type="button" class="btn bag-button">ADD TO BAG</button>
+                                    <button type="submit" class="btn checkout-button">CHECKOUT</button>
+                                </form>
+                            </div>
+                            <div class="product-info">
+                                <pre class="info simple-info"></pre>
+                                <pre class="info detail-info"></pre>
+                                <pre class="info option-info"></pre>
+                                <pre class="info management-info"></pre>
+                                <pre class="info shipping-info"></pre>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="other-products">
+                        <div class="other-product-img">
+                            <img src="/static/images/product/black_tees.png">
+                        </div>
+                        <div class="other-product-img">
+                            <img src="/static/images/product/black_tees.png">
+                        </div>
+                        <div class="other-product-img">
+                            <img src="/static/images/product/black_tees.png">
+                        </div>
+                        <div class="other-product-img">
+                            <img src="/static/images/product/black_tees.png">
+                        </div>
+                    </section>
+                </main>
+                <footer>
+                </footer>
+            </div>
+            <script src="/static/js/product/product_detail.js"></script>
+        </body>
+        </html>
