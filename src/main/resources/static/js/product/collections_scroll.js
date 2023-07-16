@@ -50,9 +50,6 @@ class PageScroll {
         const body = document.querySelector("body");
 
         body.onscroll = () => {
-            // console.log("문서 전체 높이: " + body.offsetHeight);
-            // console.log("눈에 보이는 영역 높이: " + html.clientHeight);
-            // console.log("스크롤의 상단 위치: " + html.scrollTop);
             let scrollStatus = body.offsetHeight - html.clientHeight - html.scrollTop;
             console.log("현재 스크롤 상태: " + scrollStatus);
             if(scrollStatus > -50 && scrollStatus < 50) {

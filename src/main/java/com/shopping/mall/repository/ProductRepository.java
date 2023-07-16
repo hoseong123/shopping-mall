@@ -1,4 +1,8 @@
 package com.shopping.mall.repository;
+
+import com.shopping.mall.domain.CollectionsProduct;
+import com.shopping.mall.domain.PaymentProduct;
+import com.shopping.mall.domain.Product;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.HashMap;

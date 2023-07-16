@@ -123,12 +123,21 @@ public class ProductManagementServiceImpl implements ProductManagementService {
             }
 
             productImgs.add(ProductImg.builder()
-                    .pdt_id(productImgReqDto.getPdtId())
-                    .origin_name(originName)
-                    .save_name(saveName)
-                    .build());
+                            .pdt_id(productImgReqDto.getPdtId())
+                            .origin_name(originName)
+                            .save_name(saveName)
+                            .build());
         });
 
         productManagementRepository.saveProductImg(productImgs);
     }
 }
+
+
+
+
+
+
+
+
+

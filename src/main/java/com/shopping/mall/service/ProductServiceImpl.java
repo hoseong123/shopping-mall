@@ -1,5 +1,6 @@
 package com.shopping.mall.service;
 
+
 import com.shopping.mall.domain.Product;
 import com.shopping.mall.dto.CheckoutRespDto;
 import com.shopping.mall.dto.CollectionListRespDto;
@@ -89,3 +90,4 @@ public class ProductServiceImpl implements ProductService {
         return productRepository.getPaymentProduct(pdtDtlId).toDto();
     }
 }
+

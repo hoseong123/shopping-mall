@@ -18,7 +18,7 @@ import java.util.Map;
 @Component
 public class ValidationAop {
 
-    @Pointcut("@annotation(com.stussy.stussyclone20220930hs.aop.annotation.ValidAspect)")
+    @Pointcut("@annotation(com.shopping.mall.aop.annotation.ValidAspect)")
     private void annotationPointcut() {}
 
     @Around("annotationPointcut()")
