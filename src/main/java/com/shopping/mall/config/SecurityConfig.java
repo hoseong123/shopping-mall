@@ -38,8 +38,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .formLogin()
                 .usernameParameter("email")
-                .loginPage("/account/login")            // login page Get요청
-                .loginProcessingUrl("/account/login")   // login service Post요청
+                .loginPage("/account/login")
+                .loginProcessingUrl("/account/login")
                 .failureHandler(new AuthFailureHandler())
                 .defaultSuccessUrl("/index")
                 .and()
